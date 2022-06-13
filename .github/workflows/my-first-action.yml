@@ -1,12 +1,22 @@
 name: GitHub Actions Demo
-on: push
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
+
   Example-Actions-Job:
     name: Exploring GitHub Actions
     runs-on: ubuntu-latest
     steps:
+    
       # Display the event that triggered the workflow
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
+      
+      - run: echo "Workflow initiated by ${{ env.GITHUB_ACTOR }}"
+      
+      - run: echo "Workflow initiated by $GITHUB_ACTOR"
       
       # Runner information
       - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub"
