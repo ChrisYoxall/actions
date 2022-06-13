@@ -14,8 +14,10 @@ jobs:
       # Display the event that triggered the workflow
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
       
-      - run: echo "Workflow initiated by ${{ env.GITHUB_ACTOR }}"
+      # Print actor using context 
+      - run: echo "Workflow initiated by ${{ github.actor }}"
       
+      # Print actor from environment varialbe set on runner
       - run: echo "Workflow initiated by $GITHUB_ACTOR"
       
       # Runner information
